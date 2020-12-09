@@ -12,4 +12,7 @@ class Robot
         end
         @bearing = direction
     end
-end
+    def turn_right
+        orient(:east) 
+     end
+ end
