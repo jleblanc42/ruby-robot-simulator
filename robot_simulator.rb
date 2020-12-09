@@ -2,10 +2,12 @@ class Robot
 
     attr_reader :bearing
 
-    def initialize
+    # def initialize
 
-    end
-
+    # end
+    # def bearing
+    #      @bearing
+    # end
     def orient(direction)
         unless [:east, :west, :north, :south].include? direction
             raise ArgumentError.new "invalid argument: #{direction}" 
@@ -13,6 +15,15 @@ class Robot
         @bearing = direction
     end
     def turn_right
-        orient(:east) 
+        if (bearing==:north)
+            orient(:east) 
+        elsif (bearing==:east)
+            orient (:south)
+        elsif(bearing==:south)
+            orient(:west)
+        elsif(bearing==:west)
+            orient(:north)
+        end
      end
+     
  end
